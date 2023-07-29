@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * @Author Skuray
  * @Date 2023/7/29 11:19
- * 腾讯云发送短信接口
+ * 腾讯云发送短信API
  */
 
 @Slf4j
