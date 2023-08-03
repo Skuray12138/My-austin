@@ -1,9 +1,6 @@
 package com.ray.austin.common.enums;
 
-import com.ray.austin.common.dto.model.EmailContentModel;
-import com.ray.austin.common.dto.model.ImContentModel;
-import com.ray.austin.common.dto.model.PushContentModel;
-import com.ray.austin.common.dto.model.SmsContentModel;
+import com.ray.austin.common.dto.model.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -23,7 +20,8 @@ public enum ChannelType {
     IM(10, "IM(站内信)", ImContentModel.class, "im"),
     PUSH(20, "push(通知栏)", PushContentModel.class, "push"),
     SMS(30, "sms(短信)", SmsContentModel.class, "sms"),
-    EMAIL(40, "email(邮件)", EmailContentModel.class, "email");
+    EMAIL(40, "email(邮件)", EmailContentModel.class, "email"),
+    OFFICIAL_ACCOUNT(50, "officialAccounts(服务号)", OfficialAccountsContentModel.class, "official_accounts");
 
     /**
      * 编码值

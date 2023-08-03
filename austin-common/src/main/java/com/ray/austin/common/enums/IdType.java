@@ -7,7 +7,7 @@ import lombok.ToString;
 /**
  * @Author Skuray
  * @Date 2023/7/31 17:08
- * 发送ID类型枚举
+ * 发送类型枚举：Phone、Email...
  * @Attribute 编码code、描述description
  */
 
