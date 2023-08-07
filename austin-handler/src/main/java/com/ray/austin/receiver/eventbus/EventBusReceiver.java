@@ -1,4 +1,4 @@
-package com.ray.austin.receiver;
+package com.ray.austin.receiver.eventbus;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.eventbus.Subscribe;
@@ -6,7 +6,9 @@ import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.constans.MessageQueuePipeline;
 import com.ray.austin.domain.MessageTemplate;
 import com.ray.austin.mq.eventbus.EventBusListener;
+import com.ray.austin.receiver.service.ConsumeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
@@ -25,10 +27,14 @@ import java.util.List;
 @ConditionalOnProperty(name = "austin.mq.pipeline", havingValue = MessageQueuePipeline.EVENT_BUS)
 @Slf4j
 public class EventBusReceiver implements EventBusListener {
+
+    @Autowired
+    private ConsumeService consumeService;
     @Override
     @Subscribe   // @Subscribe注解使该方法可以接收消息队列eventBus发出的消息
     public void consume(List<TaskInfo> lists) {
         log.error(JSON.toJSONString(lists));
+        consumeService.consume2Send(lists);
     }
 
     @Override

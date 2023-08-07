@@ -1,7 +1,7 @@
-package com.ray.austin.receiver;
+package com.ray.austin.receiver.kafka;
 
 import com.ray.austin.constans.MessageQueuePipeline;
-import com.ray.austin.utils.GroupMappingUtils;
+import com.ray.austin.utils.GroupIdMappingUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.header.Header;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.xml.soap.SAAJResult;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -48,7 +47,7 @@ public class ReceiverStart {
     /**
      * 获取得到所有的groupId
      */
-    private static List<String> groupIds = GroupMappingUtils.getAllGroups();
+    private static List<String> groupIds = GroupIdMappingUtils.getAllGroups();
 
     /**
      * 下标(用于迭代groupIds位置)

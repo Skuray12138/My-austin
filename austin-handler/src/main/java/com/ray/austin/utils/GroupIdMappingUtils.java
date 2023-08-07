@@ -13,7 +13,7 @@ import java.util.List;
  * 使用groupId标识每一个消费者组
  */
 
-public class GroupMappingUtils {
+public class GroupIdMappingUtils {
 
     /**
      * 获取所有的消费者组groups <p>
