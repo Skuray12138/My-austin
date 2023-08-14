@@ -1,7 +1,9 @@
 package com.ray.austin.deduplication;
 
+import com.ray.austin.common.constant.CommonConstant;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.common.enums.DeduplicationType;
+import com.ray.austin.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,9 @@ public class DeduplicationRuleService {
     @Autowired
     private DeduplicationHolder deduplicationHolder;
 
+    @Autowired
+    private ConfigService configService;
+
     /**
      * 拿到去重服务列表，顺序执行两种去重服务，taskInfo作为参数传入去重服务
      * @param taskInfo
@@ -32,8 +37,9 @@ public class DeduplicationRuleService {
          * {"deduplication_10":{"num":1,"time":300},"deduplication_20":{"num":5}}
          * 可通过分布式配置中心来更新配置
          */
-        String deduplicationConfig = "{\"deduplication_10\":{\"num\":1,\"time\":300}," +
-                "\"deduplication_20\":{\"num\":5}}";
+//        String deduplicationConfig = "{\"deduplication_10\":{\"num\":1,\"time\":300}," +
+//                "\"deduplication_20\":{\"num\":5}}";
+        String deduplicationConfig = configService.getProperty(DEDUPLICATION_RULE_KEY, CommonConstant.EMPTY_JSON_OBJECT);
 
         // 获取去重渠道code列表 10:内容去重  20:频次去重
         List<Integer> deduplicationList = DeduplicationType.getDeduplicationList();

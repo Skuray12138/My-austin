@@ -3,6 +3,7 @@ package com.ray.austin.pending;
 import cn.hutool.core.collection.CollUtil;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.deduplication.DeduplicationRuleService;
+import com.ray.austin.discard.DiscardMessageService;
 import com.ray.austin.service.DeduplicationService;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -34,10 +35,15 @@ public class Task implements Runnable{
     @Autowired
     DeduplicationRuleService deduplicationRuleService;
 
+    @Autowired
+    private DiscardMessageService discardMessageService;
+
     @Override
     public void run() {
         // 1.丢弃消息
-
+        if (discardMessageService.isDiscard(taskInfo)){
+            return;
+        }
         // 2.屏蔽消息
 
         // 3.通用去重功能
