@@ -1,11 +1,11 @@
 package com.ray.austin.common.domain;
 
+import com.ray.austin.common.dto.model.ContentModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.swing.text.html.parser.ContentModel;
 import java.util.Set;
 
 /**

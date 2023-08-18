@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.deduplication.DeduplicationRuleService;
 import com.ray.austin.discard.DiscardMessageService;
+import com.ray.austin.handler.HandlerHolder;
 import com.ray.austin.service.DeduplicationService;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -38,6 +39,9 @@ public class Task implements Runnable{
     @Autowired
     private DiscardMessageService discardMessageService;
 
+    @Autowired
+    private HandlerHolder handlerHolder;
+
     @Override
     public void run() {
         // 1.丢弃消息
@@ -52,5 +56,8 @@ public class Task implements Runnable{
         }
 
         // 4.发送消息
+        if (CollUtil.isNotEmpty(taskInfo.getReceiver())){
+            handlerHolder.route(taskInfo.getSendChannel()).doHandler(taskInfo);
+        }
     }
 }
