@@ -1,5 +1,6 @@
 package com.ray.austin.service.api.impl.service;
 
+import cn.monitor4all.logRecord.annotation.OperationLog;
 import com.ray.austin.common.vo.BasicResultVO;
 import com.ray.austin.pipeline.ProcessContext;
 import com.ray.austin.pipeline.ProcessController;
@@ -31,6 +32,7 @@ public class SendServiceImpl implements SendService {
      * 构建SendTaskModel和上下文context,并将上下文传入流程控制器的process方法中去执行
      */
     @Override
+    @OperationLog(bizType = "SendService#send", bizId = "#sendRequest.messageTemplateId", msg = "#sendRequest")
     public SendResponse send(SendRequest sendRequest) {
         SendTaskModel sendTaskModel = SendTaskModel.builder()
                 .messageTemplateId(sendRequest.getMessageTemplateId())
@@ -54,6 +56,7 @@ public class SendServiceImpl implements SendService {
      * @return
      */
     @Override
+    @OperationLog(bizType = "SendService#batchSend", bizId = "#batchSendRequest.messageTemplateId", msg = "#batchSendRequest")
     public SendResponse batchSend(BatchSendRequest batchSendRequest) {
         SendTaskModel sendTaskModel = SendTaskModel.builder()
                 .messageTemplateId(batchSendRequest.getMessageTemplateId())
