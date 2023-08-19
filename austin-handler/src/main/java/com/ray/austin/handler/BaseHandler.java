@@ -1,7 +1,10 @@
 package com.ray.austin.handler;
 
+import com.ray.austin.common.domain.AnchorInfo;
 import com.ray.austin.common.domain.TaskInfo;
+import com.ray.austin.common.enums.AnchorState;
 import com.ray.austin.domain.MessageTemplate;
+import com.ray.austin.utils.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +19,9 @@ public abstract class BaseHandler implements Handler{
 
     @Autowired
     private HandlerHolder handlerHolder;
+
+    @Autowired
+    private LogUtils logUtils;
 
     /**
      * 标识渠道的code <p>
@@ -34,8 +40,20 @@ public abstract class BaseHandler implements Handler{
     @Override
     public void doHandler(TaskInfo taskInfo) {
         if (handler(taskInfo)){
+            // 发送成功 打点
+            logUtils.print(AnchorInfo.builder()
+                    .businessId(taskInfo.getBusinessId())
+                    .ids(taskInfo.getReceiver())
+                    .state(AnchorState.SEND_SUCCESS.getCode())
+                    .build());
             return;
         }
+        // 发送失败 打点
+        logUtils.print(AnchorInfo.builder()
+                .businessId(taskInfo.getBusinessId())
+                .ids(taskInfo.getReceiver())
+                .state(AnchorState.SEND_FAIL.getCode())
+                .build());
     }
 
     /**

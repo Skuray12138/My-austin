@@ -1,10 +1,12 @@
 package com.ray.austin.service;
 
 import cn.hutool.core.collection.CollUtil;
+import com.ray.austin.common.domain.AnchorInfo;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.deduplication.DeduplicationHolder;
 import com.ray.austin.deduplication.DeduplicationParam;
 import com.ray.austin.limit.LimitService;
+import com.ray.austin.utils.LogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,6 +36,9 @@ public abstract class AbstractDeduplicationService implements DeduplicationServi
         deduplicationHolder.putService(deduplicationType, this);
     }
 
+    @Autowired
+    private LogUtils logUtils;
+
     /**
      * 去重并删除符合的receiver 从taskInfo
      * @param param
@@ -46,6 +51,13 @@ public abstract class AbstractDeduplicationService implements DeduplicationServi
         // 剔除符合去重条件的用户 删除taskInfo中符合去重条件的用户
         if (CollUtil.isNotEmpty(filterReceiver)){
             taskInfo.getReceiver().removeAll(filterReceiver);
+
+            // 进行数据线路追踪 -- 记录打点信息
+            logUtils.print(AnchorInfo.builder()
+                    .businessId(taskInfo.getBusinessId()) // 业务id
+                    .ids(taskInfo.getReceiver()) // 去重对线
+                    .state(param.getAnchorState().getCode()) // 数据埋点类型
+                    .build());
         }
     }
 

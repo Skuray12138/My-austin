@@ -7,10 +7,10 @@ import com.ray.austin.service.api.impl.action.AfterParamCheckAction;
 import com.ray.austin.service.api.impl.action.AssembleAction;
 import com.ray.austin.service.api.impl.action.PreParamCheckAction;
 import com.ray.austin.service.api.impl.action.SendMqAction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +23,13 @@ import java.util.Map;
  */
 @Configuration
 public class PipelineConfig {
-    @Resource
+    @Autowired
     private PreParamCheckAction preParamCheckAction;
-    @Resource
+    @Autowired
     private AssembleAction assembleAction;
-    @Resource
+    @Autowired
     private AfterParamCheckAction afterParamCheckAction;
-    @Resource
+    @Autowired
     private SendMqAction sendMqAction;
 
     /**
