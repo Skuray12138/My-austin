@@ -1,4 +1,4 @@
-package com.ray.austin.common.constant;
+package com.ray.austin.common.enums.constant;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

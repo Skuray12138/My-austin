@@ -6,7 +6,7 @@ import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.shaded.com.google.common.base.Throwables;
-import com.ray.austin.common.constant.PushConstant;
+import com.ray.austin.common.enums.constant.PushConstant;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.common.enums.ChannelType;
 import com.ray.austin.common.enums.RespStatusEnum;

@@ -118,7 +118,7 @@ public final class BasicResultVO<T> {
      * @return
      * @param <T>
      */
-    private static <T> BasicResultVO<T> fail(RespStatusEnum status, String msg) {
+    public static <T> BasicResultVO<T> fail(RespStatusEnum status, String msg) {
         return new BasicResultVO<>(status, msg, null);
     }
 }

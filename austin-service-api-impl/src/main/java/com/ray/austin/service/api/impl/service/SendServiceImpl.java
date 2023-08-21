@@ -11,6 +11,7 @@ import com.ray.austin.service.api.domain.SendResponse;
 import com.ray.austin.service.api.impl.domain.SendTaskModel;
 import com.ray.austin.service.api.service.SendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
@@ -19,7 +20,7 @@ import java.util.Collections;
  * @Date 2023/8/3 11:01
  * 发送接口实现类
  */
-
+@Service
 public class SendServiceImpl implements SendService {
 
     @Autowired

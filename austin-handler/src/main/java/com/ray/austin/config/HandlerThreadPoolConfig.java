@@ -4,7 +4,7 @@ import com.dtp.common.em.QueueTypeEnum;
 import com.dtp.common.em.RejectedTypeEnum;
 import com.dtp.core.thread.DtpExecutor;
 import com.dtp.core.thread.ThreadPoolBuilder;
-import com.ray.austin.common.constant.ThreadPoolConstant;
+import com.ray.austin.common.enums.constant.ThreadPoolConstant;
 
 import java.util.concurrent.TimeUnit;
 

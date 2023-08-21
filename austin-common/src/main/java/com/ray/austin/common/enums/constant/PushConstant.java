@@ -1,4 +1,4 @@
-package com.ray.austin.common.constant;
+package com.ray.austin.common.enums.constant;
 
 /**
  * @Author Skuray
@@ -31,6 +31,11 @@ public class PushConstant {
     public final static Integer BUSINESS_ID_LENGTH = 16;
 
     /**
+     * 接口限制 最多的人数
+     */
+    public static final Integer BATCH_RECEIVER_SIZE = 100;
+
+    /**
      * 消息发送给全部人的标识
      * (企业微信 应用消息)
      * (钉钉自定义机器人)
@@ -53,4 +58,8 @@ public class PushConstant {
      */
     public static final String REQUEST_METHOD_GET = "GET";
     public static final String REQUEST_METHOD_POST = "POST";
+    public static final String DEFAULT_CREATOR = "ray";
+    public static final String DEFAULT_UPDATOR = "ray";
+    public static final String DEFAULT_TEAM = "公众号";
+    public static final String DEFAULT_AUDITOR = "ray";
 }

@@ -1,7 +1,7 @@
 package com.ray.austin.limit;
 
 import cn.hutool.core.collection.CollUtil;
-import com.ray.austin.common.constant.CommonConstant;
+import com.ray.austin.common.enums.constant.CommonConstant;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.deduplication.DeduplicationParam;
 import com.ray.austin.service.AbstractDeduplicationService;

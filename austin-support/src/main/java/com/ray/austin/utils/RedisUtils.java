@@ -2,7 +2,7 @@ package com.ray.austin.utils;
 
 import cn.hutool.core.collection.CollUtil;
 import com.alibaba.nacos.shaded.com.google.common.base.Throwables;
-import com.ray.austin.common.constant.CommonConstant;
+import com.ray.austin.common.enums.constant.CommonConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;

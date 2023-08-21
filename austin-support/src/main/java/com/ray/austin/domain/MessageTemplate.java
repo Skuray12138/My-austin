@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,11 +25,11 @@ import java.io.Serializable;
  *           注解GeneratedValue注解表示注解自动生成，strategy则表示主键的生成策略
  */
 @Data
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Accessors(chain = true)
 public class MessageTemplate implements Serializable {
 
     /**

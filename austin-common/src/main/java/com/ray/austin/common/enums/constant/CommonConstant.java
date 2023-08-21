@@ -1,4 +1,4 @@
-package com.ray.austin.common.constant;
+package com.ray.austin.common.enums.constant;
 
 /**
  * @Author Skuray

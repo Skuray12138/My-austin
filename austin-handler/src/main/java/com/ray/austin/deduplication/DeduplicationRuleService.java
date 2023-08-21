@@ -1,6 +1,6 @@
 package com.ray.austin.deduplication;
 
-import com.ray.austin.common.constant.CommonConstant;
+import com.ray.austin.common.enums.constant.CommonConstant;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.common.enums.DeduplicationType;
 import com.ray.austin.service.ConfigService;

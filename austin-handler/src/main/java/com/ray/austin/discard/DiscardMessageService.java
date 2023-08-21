@@ -2,7 +2,7 @@ package com.ray.austin.discard;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.ray.austin.common.constant.CommonConstant;
+import com.ray.austin.common.enums.constant.CommonConstant;
 import com.ray.austin.common.domain.AnchorInfo;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.common.enums.AnchorState;
