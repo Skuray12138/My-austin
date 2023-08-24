@@ -84,7 +84,7 @@ public class MessageTemplateController {
     }
 
     /**
-     * 根据Id复制
+     * 根据Id复制：除了id和定时任务id
      * @param id
      */
     @PostMapping("copy/{id}")

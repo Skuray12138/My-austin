@@ -6,6 +6,7 @@ import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.shaded.com.google.common.base.Throwables;
+import com.ray.austin.common.dto.model.ContentModel;
 import com.ray.austin.common.enums.constant.PushConstant;
 import com.ray.austin.common.domain.TaskInfo;
 import com.ray.austin.common.enums.ChannelType;
@@ -24,7 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.swing.text.html.parser.ContentModel;
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -99,6 +99,7 @@ public class AssembleAction implements BusinessProcess<SendTaskModel> {
 
     /**
      * 获取contentModel, 替换模板msgContent中的占位符信息
+     *
      * @param messageTemplate
      * @param messageParam
      * @return

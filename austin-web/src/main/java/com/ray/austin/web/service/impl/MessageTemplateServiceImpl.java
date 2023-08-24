@@ -195,7 +195,8 @@ public class MessageTemplateServiceImpl implements MessageTemplateService {
         // 3.获取taskId(如果本身有则复用，若不存在则得到新建后任务Id)
         Integer taskId = messageTemplate.getCronTaskId();
         BasicResultVO basicResultVO = cronTaskService.saveCronTask(xxlJobInfo);
-        if (Objects.isNull(taskId) && RespStatusEnum.SUCCESS.getCode().equals(basicResultVO.getData())){
+        if (Objects.isNull(taskId) && RespStatusEnum.SUCCESS.getCode().equals(basicResultVO.getStatus()) &&
+                Objects.nonNull(basicResultVO.getData())){
             taskId = Integer.valueOf(String.valueOf(basicResultVO.getData()));
         }
         // 4.启动定时任务
