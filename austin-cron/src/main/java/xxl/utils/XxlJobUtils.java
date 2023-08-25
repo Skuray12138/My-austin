@@ -1,4 +1,4 @@
-package utils;
+package xxl.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
@@ -6,14 +6,14 @@ import com.ray.austin.common.enums.RespStatusEnum;
 import com.ray.austin.common.enums.constant.CommonConstant;
 import com.ray.austin.common.vo.BasicResultVO;
 import com.ray.austin.domain.MessageTemplate;
-import constants.XxlJobConstant;
-import entity.XxlJobGroup;
-import entity.XxlJobInfo;
-import enums.*;
+import xxl.constants.XxlJobConstant;
+import xxl.entity.XxlJobGroup;
+import xxl.entity.XxlJobInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import service.CronTaskService;
+import xxl.service.CronTaskService;
+import xxl.enums.*;
 
 import java.util.Date;
 import java.util.Objects;

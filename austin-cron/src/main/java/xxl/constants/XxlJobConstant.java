@@ -1,4 +1,4 @@
-package constants;
+package xxl.constants;
 
 /**
  * @Author Skuray

@@ -1,4 +1,4 @@
-package enums;
+package xxl.enums;
 
 /**
  * @Author Skuray

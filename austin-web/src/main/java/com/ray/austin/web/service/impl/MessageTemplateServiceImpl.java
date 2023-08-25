@@ -14,14 +14,14 @@ import com.ray.austin.dao.MessageTemplateDao;
 import com.ray.austin.domain.MessageTemplate;
 import com.ray.austin.web.service.MessageTemplateService;
 import com.ray.austin.web.vo.MessageTemplateParam;
-import entity.XxlJobInfo;
+import xxl.entity.XxlJobInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import service.CronTaskService;
-import utils.XxlJobUtils;
+import xxl.service.CronTaskService;
+import xxl.utils.XxlJobUtils;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.Predicate;

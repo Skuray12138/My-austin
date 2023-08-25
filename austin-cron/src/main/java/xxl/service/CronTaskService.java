@@ -1,8 +1,8 @@
-package service;
+package xxl.service;
 
 import com.ray.austin.common.vo.BasicResultVO;
-import entity.XxlJobGroup;
-import entity.XxlJobInfo;
+import xxl.entity.XxlJobGroup;
+import xxl.entity.XxlJobInfo;
 
 /**
  * @Author Skuray
