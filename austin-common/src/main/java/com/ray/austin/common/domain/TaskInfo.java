@@ -22,6 +22,17 @@ import java.util.Set;
 public class TaskInfo {
 
     /**
+     * 业务消息发送id(数据追踪用)。若不存在，则使用messageId
+     */
+    private String bizId;
+
+    /**
+     * 消息唯一id(数据追踪用)
+     */
+    private String messageId;
+
+
+    /**
      * 消息模板id
      */
     private Long messageTemplateId;

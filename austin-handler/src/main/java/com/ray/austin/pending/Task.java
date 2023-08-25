@@ -6,6 +6,7 @@ import com.ray.austin.deduplication.DeduplicationRuleService;
 import com.ray.austin.discard.DiscardMessageService;
 import com.ray.austin.handler.HandlerHolder;
 import com.ray.austin.service.DeduplicationService;
+import com.ray.austin.shield.ShieldService;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,10 @@ public class Task implements Runnable{
     private TaskInfo taskInfo;
 
     @Autowired
-    DeduplicationRuleService deduplicationRuleService;
+    private DeduplicationRuleService deduplicationRuleService;
+
+    @Autowired
+    private ShieldService shieldService;
 
     @Autowired
     private DiscardMessageService discardMessageService;
@@ -49,6 +53,7 @@ public class Task implements Runnable{
             return;
         }
         // 2.屏蔽消息
+        shieldService.shield(taskInfo);
 
         // 3.通用去重功能
         if (CollUtil.isNotEmpty(taskInfo.getReceiver())){
